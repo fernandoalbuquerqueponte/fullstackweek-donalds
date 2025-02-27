@@ -16,32 +16,30 @@ const ProductHeader = ({ product }: ProductHeaderProps) => {
   const handleBackClick = () => router.back();
 
   return (
-    <div>
-      <div className="relative h-[300px] w-full">
-        <Button
-          size="icon"
-          variant="secondary"
-          className="absolute left-4 top-4 z-50 rounded-full"
-          onClick={handleBackClick}
-        >
-          <ChevronLeftIcon />
-        </Button>
+    <div className="relative h-[300px] min-h-[300px] w-full">
+      <Button
+        size="icon"
+        variant="secondary"
+        className="absolute left-4 top-4 z-50 rounded-full"
+        onClick={handleBackClick}
+      >
+        <ChevronLeftIcon />
+      </Button>
 
-        <Image
-          src={product.imageUrl}
-          alt={product.name}
-          className="object-cover"
-          fill
-        />
+      <Image
+        src={product.imageUrl}
+        alt={product.name}
+        className="object-cover"
+        fill
+      />
 
-        <Button
-          size="icon"
-          variant="secondary"
-          className="absolute right-4 top-4 z-50 rounded-full"
-        >
-          <ScrollTextIcon />
-        </Button>
-      </div>
+      <Button
+        size="icon"
+        variant="secondary"
+        className="absolute right-4 top-4 z-50 rounded-full"
+      >
+        <ScrollTextIcon />
+      </Button>
     </div>
   );
 };
