@@ -22,7 +22,7 @@ interface ProductDetailsProps {
 }
 
 const ProductDetails = ({ product }: ProductDetailsProps) => {
-  const { toggleCart } = useContext(CartContext);
+  const { toggleCart, addProduct } = useContext(CartContext);
   const [quantity, setQuantity] = useState<number>(1);
 
   const handleDecreaseQuantity = () => {
@@ -38,6 +38,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
   };
 
   const handleAddToCart = () => {
+    addProduct({ ...product, quantity });
     toggleCart();
   };
 
@@ -46,7 +47,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
       <div className="relative z-50 mt-[-1.5rem] flex flex-auto flex-col overflow-hidden rounded-t-3xl p-5">
         <div className="flex-auto overflow-hidden">
           {/* Restaurante */}
-          <div className="flex items-center gap-1.5">
+          <div className="mt-4 flex items-center gap-1.5">
             <Image
               src={product.restaurant.avatarImageUrl}
               alt={product.restaurant.name}
